@@ -6,10 +6,10 @@ class Landing extends Component {
     render() {
         return (
             <div style={{textAlign:'center'}}>
-                <h1>
-                    Emaily
+                <h1 style={{fontFamily: 'segoe ui'}}>
+                    Find My Perfect Pint
                 </h1>
-                Collect feedback from your users
+                Find nearby top-rated happy hours!
             </div>
         );
     }

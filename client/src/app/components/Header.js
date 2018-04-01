@@ -9,7 +9,7 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>;
+                return <li><a className="waves-effect waves-light btn green" href="/auth/google">Login With Google</a></li>
             default:
             return [
                 <li key="3"><a href="/api/logout">Logout</a></li>
@@ -21,12 +21,12 @@ class Header extends Component {
         //console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper blue">
                     <Link to={this.props.auth ? "/surveys" : "/"}
-                        className="left brand-logo"
+                        className="brand-logo"
                         style={{marginLeft: '10px'}}
                     >
-                        Emaily
+                        PerfectPint
                     </Link>
                     <ul className="right">
                         {this.renderContent()}
