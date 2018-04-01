@@ -12,6 +12,7 @@ export default function(state = null, action) {
             // if action.payload is an empty string or false, return false
             // if action.payload is not falsie return action payload,
             // if false, return false
+            // return if it exist, else return false
             return action.payload || false;
         default:
             return state;

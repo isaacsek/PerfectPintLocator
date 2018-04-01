@@ -9,10 +9,11 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a className="waves-effect waves-light btn green" href="/auth/google">Login With Google</a></li>
+                return <li><a className="waves-effect waves-light btn green" href="/api/auth/google">Login With Google</a></li>
             default:
             return [
-                <li key="3"><a href="/api/logout">Logout</a></li>
+                <li key="1"><a href="/dashboard" className="waves-effect waves-light btn green">Dashboard</a></li>,
+                <li key="2"><a href="/api/logout" className="waves-effect waves-light btn green">Logout</a></li>
             ];
         }
     }
@@ -22,11 +23,11 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper blue">
-                    <Link to={this.props.auth ? "/surveys" : "/"}
+                    <Link to={this.props.auth ? "/" : "/"}
                         className="brand-logo"
                         style={{marginLeft: '10px'}}
                     >
-                        PerfectPint
+                        ThePerfectPint
                     </Link>
                     <ul className="right">
                         {this.renderContent()}

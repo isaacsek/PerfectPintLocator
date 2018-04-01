@@ -25,10 +25,10 @@ export const fetchUser = () => async dispatch => {
     dispatch({type: FETCH_USER, payload: res.data});
 }
 
-// after payment has been made, handle token
-export const handleStripeToken = (token) => async dispatch => {
-    const res = await axios.post("/api/handleStripeToken", token);
-
-    // update user model
-    dispatch({type: FETCH_USER, payload: res.data});
-}
+// // after payment has been made, handle token
+// export const handleStripeToken = (token) => async dispatch => {
+//     const res = await axios.post("/api/handleStripeToken", token);
+//
+//     // update user model
+//     dispatch({type: FETCH_USER, payload: res.data});
+// }

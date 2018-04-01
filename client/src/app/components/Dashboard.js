@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
+    renderName() {
+        if(this.props.auth) {
+            return this.props.auth.name.givenName;
+        }
+        else {
+            return "loading...";
+        }
+    }
 
     render() {
         return (
@@ -10,9 +18,9 @@ class Dashboard extends Component {
                 <h1>
                     Dashboard
                 </h1>
-                Welcome
+                Welcome to the dashboard! {this.renderName()}
                 <div className="fixed-action-btn">
-                    <Link to="/surveys/new" className="btn-floating btn-large red">
+                    <Link to="/" className="btn-floating btn-large red">
                         <i className="material-icons">add</i>
                     </Link>
                 </div>

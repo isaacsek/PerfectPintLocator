@@ -10,15 +10,10 @@ const keys = require("./config/keys");
 require("./models/user");
 const passportConfig = require("./services/passport");
 const authRoutes = require("./routes/authRoutes");
-const billingRoutes = require("./routes/billingRoutes");
-
-
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
-app.use(bodyParser.json()); // parse body and assign it to the req.body
-// use cookied
+app.use(bodyParser.json()); // parse body and assign it to the req.body,
 app.use(
     cookieSesssion({
         // use for only 30 days
@@ -29,14 +24,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // tell passport to use cookies
 
-
 // Route handling
 authRoutes(app);
-billingRoutes(app);
-
-// app.get("/", (req, res) => {
-//     res.send({hello: 'world'});
-// })
 
 if(process.env.NODE_ENV === "production") {
     // express serve production assets
