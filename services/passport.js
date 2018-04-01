@@ -25,11 +25,9 @@ passport.use(new GoogleStrategy({
         proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-        //console.log('accessToken', accessToken);
-        //console.log('refreshToken', refreshToken);
-        //console.log('profile', profile);
+        //console.log('email', profile.emails[0].value, "name", profile.name);
 
-        const existingUser = await User.findOne({googleID: profile.id})
+        const existingUser = await User.findOne({googleId: profile.id})
             if(existingUser) {
                 // null is user is not found
                 done(null, existingUser); // null = no error
@@ -37,7 +35,14 @@ passport.use(new GoogleStrategy({
             }
             else {
                 // chain on promise to make sequentially
-                const user = await new User({googleID : profile.id}).save();
+                const user = await new User(
+                {
+                    googleId : profile.id,
+                    email: profile.emails[0].value,
+                    name: profile.name,
+                    bookmarks: [],
+                    currentBookmark: null
+                }).save();
                 done(null, user);
             }
     })
