@@ -8,13 +8,8 @@ import {
 } from "react-google-maps";
 
 const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-  <GoogleMap
-    defaultZoom={10}
-    defaultCenter={{ lat: 47.6062, lng: -122.3321 }}
-  >
-    <Marker
-      position={{ lat: 47.6062, lng: -122.3321 }}
-    />
+  <GoogleMap defaultZoom={10} defaultCenter={{ lat: 47.6062, lng: -122.3321 }} >
+    <Marker position={{ lat: 47.6062, lng: -122.3321 }} />
   </GoogleMap>
 ));
 
@@ -28,7 +23,7 @@ class Map extends Component {
                 <MapWithAMarker
                   googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
                   loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `600px`, width:"100%" }} />}
+                  containerElement={<div style={{ height: `600px`}} />}
                   mapElement={<div style={{ height: `100%` }} />}
                 />
             </div>

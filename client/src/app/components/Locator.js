@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Map from "./Map";
+// import Map from "./Map";
+import AddressInput from "./AddressInput";
+import SearchBar from "./SearchBar";
 
 class Locator extends Component {
 
@@ -9,8 +11,14 @@ class Locator extends Component {
             <div style={{textAlign:'center'}}>
                 <h1 style={{fontFamily: 'segoe ui'}}>Find My Perfect Pint</h1>
                 <div>Find nearby top-rated happy hours!</div>
-                <input type="text" style={{width:200}} />
-                <Map/>
+                <div style={{}}>
+                    <AddressInput/>
+                </div>
+                <SearchBar />
+
+                <div style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
+                    {/* <Map /> */}
+                </div>
             </div>
         );
     }
