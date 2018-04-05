@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from "react-google-maps";
+
+import ReactGoogleMapLoader from "react-google-maps-loader";
+
+/* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
   <div className="Demo__suggestion-item">
     <i className="fa fa-map-marker Demo__suggestion-icon" />
@@ -11,16 +21,16 @@ const renderSuggestion = ({ formattedSuggestion }) => (
 );
 /* eslint-enable react/prop-types */
 
-// const renderFooter = () => (
-//   <div className="Demo__dropdown-footer">
-//     <div>
-//       <img
-//         src={require('../images/powered_by_google_default.png')}
-//         className="Demo__dropdown-footer-image"
-//       />
-//     </div>
-//   </div>
-// );
+const renderFooter = () => (
+  <div className="Demo__dropdown-footer">
+    <div>
+      <img
+        src={process.env.PUBLIC_URL + '/images/google.png'}
+        className="Demo__dropdown-footer-image"
+      />
+    </div>
+  </div>
+);
 
 const cssClasses = {
   root: 'form-group',
@@ -40,7 +50,7 @@ const onError = (status, clearSuggestions) => {
   clearSuggestions();
 };
 
-class AddressInput extends Component {
+class AddressSearchBar extends Component {
     constructor(props) {
     super(props);
     this.state = {
@@ -124,7 +134,7 @@ class AddressInput extends Component {
       <div>
         <PlacesAutocomplete
           renderSuggestion={renderSuggestion}
-          // renderFooter={renderFooter}
+          renderFooter={renderFooter}
           inputProps={inputProps}
           classNames={cssClasses}
           onSelect={this.handleSelect}
@@ -152,4 +162,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(AddressInput);
+export default connect(mapStateToProps)(AddressSearchBar);
