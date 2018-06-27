@@ -15,10 +15,8 @@ class Dashboard extends Component {
     render() {
         return (
             <div style={{textAlign:'center'}}>
-                <h1>
-                    Dashboard
-                </h1>
-                Welcome to the dashboard! {this.renderName()}
+                <h1>Dashboard</h1>
+                Welcome to the dashboard {this.renderName()}!
                 <div className="fixed-action-btn">
                     <Link to="/" className="btn-floating btn-large red">
                         <i className="material-icons">add</i>

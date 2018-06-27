@@ -7,9 +7,9 @@ class Landing extends Component {
         return (
             <div style={{textAlign:'center'}}>
                 <h1 style={{fontFamily: 'segoe ui'}}>
-                    Find My Perfect Pint
+                    Nordy Checkout
                 </h1>
-                Find nearby top-rated happy hours!
+                Checkout in half the time!
             </div>
         );
     }

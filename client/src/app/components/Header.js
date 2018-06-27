@@ -19,15 +19,14 @@ class Header extends Component {
     }
 
     render() {
-        //console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper blue">
+                <div className="nav-wrapper blue darken-2">
                     <Link to={this.props.auth ? "/" : "/"}
                         className="brand-logo"
                         style={{marginLeft: '10px'}}
                     >
-                        ThePerfectPint
+                        Nordy Checkout
                     </Link>
                     <ul className="right">
                         {this.renderContent()}
